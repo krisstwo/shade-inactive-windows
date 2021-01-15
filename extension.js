@@ -72,6 +72,10 @@ function enable() {
             verifyShader(wa);
             if (!wa._inactive_shader)
                 return;
+		
+	    if (the_window.get_workspace() !== wa.get_meta_window().get_workspace())
+                return;
+            
             if (the_window == wa.get_meta_window()) {
                 Tweener.addTween(wa._inactive_shader,
                                  { shadeLevel: 0.0,
